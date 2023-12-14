@@ -2,11 +2,13 @@ syntax = "proto3";
 
 option csharp_namespace = "GrpcServicePatterns.Protos";
 
+package product;
+
 service ProductProtoService {
 
-	rpc GetProduct(GetProductRequest) returns (GetProductResponse);
-	rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse);
-	rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse);
+	rpc GetProduct(GetProductRequest) returns (ProductModel);
+	rpc CreateProduct(CreateProductRequest) returns (ProductModel);
+	rpc UpdateProduct(UpdateProductRequest) returns (ProductModel);
 	rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse);
 }
 
@@ -14,20 +16,20 @@ message ProductModel {
 	
 	int32 id = 1;
 	string name = 2;
-	decimal price = 3;
+	string price = 3;
 	string productType = 4;
 }
 
 message GetProductRequest {
-	ProductModel = 1;
+	ProductModel productModel = 1;
 }
 
 message CreateProductRequest {
-	ProductModel = 1;
+	ProductModel productModel = 1;
 }
 
 message UpdateProductRequest {
-	ProductModel = 1;
+	ProductModel productModel = 1;
 }
 
 message DeleteProductRequest {
