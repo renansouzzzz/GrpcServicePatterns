@@ -1,4 +1,3 @@
-using Grpc.Core;
 using GrpcServicePatterns.Protos;
 
 namespace GrpcServicePatterns.Services
@@ -11,12 +10,15 @@ namespace GrpcServicePatterns.Services
             _logger = logger;
         }
 
-        //public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
-        //{
-        //    return Task.FromResult(new HelloReply
-        //    {
-        //        Message = "Hello " + request.Name
-        //    });
-        //}
+        public Task<ProductModel> GetProductModel()
+        {
+            return Task.FromResult(new ProductModel
+            {
+                Id = ProductModel.IdFieldNumber,
+                Name = ProductModel.NameFieldNumber,
+                Price = ProductModel.PriceFieldNumber,
+                ProductType = ProductModel.ProductTypeFieldNumber,
+            });
+        }
     }
 }
