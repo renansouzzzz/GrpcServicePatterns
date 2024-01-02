@@ -2,11 +2,14 @@
 {
     public class ProductSingleton : Product
     {
-        private static ProductSingleton INSTANCE = new ProductSingleton();
+        private static readonly ProductSingleton INSTANCE = new ProductSingleton();
 
-        private static ProductSingleton getInstance()
-        { 
-            return INSTANCE;
+        private static ProductSingleton Instance
+        {
+            get
+            {
+                return INSTANCE;
+            }
         }
     }
 }
